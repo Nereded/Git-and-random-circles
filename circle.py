@@ -41,3 +41,15 @@ class MainWindow(QMainWindow):
 
         self.circles_view = CirclesView()
         self.layout.addWidget(self.circles_view)
+
+    def add_circle(self):
+        diameter = random.randint(20, 100)
+        color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+        self.circles_view.add_circle(diameter, color)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    main_window = MainWindow()
+    main_window.show()
+    sys.exit(app.exec_())
